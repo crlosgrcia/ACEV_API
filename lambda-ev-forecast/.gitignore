@@ -1,9 +1,0 @@
-# Ignore the virtual environment and api pickle file
-
-# virtual environment
-
-venv/
-
-# api pickle file
-
-v202409api.pickle
