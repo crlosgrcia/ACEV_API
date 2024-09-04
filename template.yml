@@ -1,0 +1,12 @@
+    AWSTemplateFormatVersion: '2010-09-09'
+    Transform: AWS::Serverless-2016-10-31
+    Description: ACEV Lambda Function.
+    
+    Resources:
+        MyLambdaFunction:
+            Type: AWS::Serverless::Function 
+            Properties:
+                CodeUri: ./app
+                Handler: awslambda.lambda_handler
+                Runtime: python3.12
+                Role: !Sub "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/ROLENAME"
