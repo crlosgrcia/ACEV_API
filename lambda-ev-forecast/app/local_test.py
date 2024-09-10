@@ -31,13 +31,12 @@ exec(methods['loader']) # methods['loader'] is a code object
 
 # print(methods) {'get': {}, 'post': {'forecast': <function forecast at 0x000002449FD74860>}, 'loader': <code object <module> at 0x00000243C544FDF0, file "method_loader", line 1>}
 
-
 http_method = "post"
 route = "/forecast"
 method = route.split('/')[-1]
 query = {'modelVersion':'v202409'}
 payload = {
-    'scenario':'mcr_ep', 'bl'
+    'scenario':'mcr_ep',
     'vehicles':
         [{'VIN':'5YJ3E1E1_H','initial_mileage':10000,'annual_mileage_assumption':10000,'msrp':37250,'model_year':2017}] # Model Year doesn't matter because it gets updated by NoTrimLookup merge
     }
