@@ -269,7 +269,7 @@ ver = 'v' + datetime.datetime.now().strftime('%Y%m')
 last_ver = 'v' + datetime.datetime.now().strftime('%Y') + str(int(datetime.datetime.now().strftime('%m'))-1).zfill(2)
 
 # Creates the api and methods objects for the inperf API.
-api,methods = create_inperf(ver,['bl'])
+api,methods = create_inperf(ver,['bl', 'mcr_u2', 'mcr_nd', 'mcr_rf', 'mcr_ep', 'mcr_cp', 'mcr_lp'])
 
 # scenario list for inperf API
 

@@ -37,7 +37,7 @@ route = "/forecast"
 method = route.split('/')[-1]
 query = {'modelVersion':'v202409'}
 payload = {
-    'scenario':'bl',
+    'scenario':'mcr_ep', 'bl'
     'vehicles':
         [{'VIN':'5YJ3E1E1_H','initial_mileage':10000,'annual_mileage_assumption':10000,'msrp':37250,'model_year':2017}] # Model Year doesn't matter because it gets updated by NoTrimLookup merge
     }
@@ -61,6 +61,6 @@ output = methods[http_method][method](api,query,payload)
 
 # for further analysis
 df = pd.DataFrame(output)
-df.to_csv(fr'O:\autocycle\AC_EV\API\bl_forecast_09.csv',index=False)
+df.to_csv(fr'O:\autocycle\AC_EV\API\mcr_ep_forecast_09.csv',index=False)
 
 print(output) # works like a charm
