@@ -18,6 +18,8 @@ def load_inperf(ver):
 
 api,methods = load_inperf('v202409')
 
+print(api) # print api dict
+
 # print keys in api dict
 
 # print(api.keys()) 
@@ -36,9 +38,16 @@ route = "/forecast"
 method = route.split('/')[-1]
 query = {'modelVersion':'v202409'}
 payload = {
-    'scenario':'mcr_ep',
+    'scenario':'bl', # can only do one scenario at a time. 
     'vehicles':
-        [{'VIN':'5YJ3E1E1_H','initial_mileage':10000,'annual_mileage_assumption':10000,'msrp':37250,'model_year':2017}] # Model Year doesn't matter because it gets updated by NoTrimLookup merge
+        [{'VIN':'1FT6W1EV_P','initial_mileage':10000,'annual_mileage_assumption': 12000,'msrp':37250,'model_year':2023}, #Ford F150
+        {'VIN':'1N4AZ1BV_P','initial_mileage':10000,'annual_mileage_assumption': 12000,'msrp':37250,'model_year':2023}, #Nissan Leaf
+        {'VIN':'5YJ3E1E1_P','initial_mileage':10000,'annual_mileage_assumption': 12000,'msrp':37250,'model_year':2023}, #Tesla Model 3
+        {'VIN':'KNDC34AA_P','initial_mileage':10000,'annual_mileage_assumption': 12000,'msrp':37250,'model_year':2023}, #Kia Niro
+        {'VIN':'7SAYCAED_P','initial_mileage':10000,'annual_mileage_assumption': 12000,'msrp':37250,'model_year':2023}, #Tesla Model Y
+        {'VIN':'WBY53EJ0_P','initial_mileage':10000,'annual_mileage_assumption': 12000,'msrp':37250,'model_year':2023}, #BMW i7
+        {'VIN':'WBY33AW0_P','initial_mileage':10000,'annual_mileage_assumption': 12000,'msrp':37250,'model_year':2023}, #BMW i4
+        ] # Model Year doesn't matter because it gets updated by NoTrimLookup merge
     }
 
 # columns in payload are vin, intial_mileage, annual_mileage_assumption, msrp, model_year, moodys_region, interior_color, sale_type, start_month, end_month,  exterior_color.
@@ -60,6 +69,6 @@ output = methods[http_method][method](api,query,payload)
 
 # for further analysis
 df = pd.DataFrame(output)
-df.to_csv(fr'O:\autocycle\AC_EV\API\mcr_ep_forecast_09.csv',index=False)
+df.to_csv(fr'O:\autocycle\AC_EV\API\mix_09.csv',index=False)
 
 print(output) # works like a charm
