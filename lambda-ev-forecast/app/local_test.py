@@ -38,7 +38,7 @@ route = "/forecast"
 method = route.split('/')[-1]
 query = {'modelVersion':'v202409'}
 payload = {
-    'scenario':'s8', # can only do one scenario at a time. s0, s1, s2, s3, s4, s5, s6, s7, s8, mcr_ep, etc. found in inperf.
+    'scenario':'mcr_lp', # can only do one scenario at a time.'bl', 'mcr_u2', 'mcr_nd', 'mcr_rf', 'mcr_ep', 'mcr_cp', 'mcr_lp, 's0', 's1', 's2', 's3', 's4', 's5', 's6', 's7', 's8', etc. found in inperf.
     'vehicles':
         [{'VIN':'1FT6W1EV_P','initial_mileage':10000,'annual_mileage_assumption': 12000,'msrp':37250,'model_year':2023}, #Ford F150
         {'VIN':'1N4AZ1BV_P','initial_mileage':10000,'annual_mileage_assumption': 12000,'msrp':37250,'model_year':2023}, #Nissan Leaf
@@ -69,6 +69,6 @@ output = methods[http_method][method](api,query,payload)
 
 # for further analysis
 df = pd.DataFrame(output)
-df.to_csv(fr'O:\autocycle\AC_EV\API\S8forecast_09.csv',index=False)
+df.to_csv(fr'O:\autocycle\AC_EV\API\mcr_lp_forecast_09.csv',index=False)
 
 print(output) # works like a charm
