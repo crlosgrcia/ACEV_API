@@ -22,9 +22,9 @@ def fixvehicles(payload):
     curmonth = datetime.date.today()
     start_month = curmonth - datetime.timedelta(days=curmonth.day-1)
     if start_month.month == 1:
-        end_month = datetime.date(start_month.year + 4,12,1)
+        end_month = datetime.date(start_month.year + 30,12,1)
     else:
-        end_month = datetime.date(start_month.year+ 5, start_month.month-1, 1)
+        end_month = datetime.date(start_month.year+ 30, start_month.month, 1)
     print(start_month,end_month)
     
     # Defines default values for vehicles in payload
