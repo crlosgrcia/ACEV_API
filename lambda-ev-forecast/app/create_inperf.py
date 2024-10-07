@@ -254,6 +254,13 @@ def create_inperf(ver,scenlist):
         with open(fr'lambda-ev-forecast\app\{ver}api.pickle',"wb") as fp: # cd to the directory where the api.pickle file will be located
             
             pickle.dump(api,fp)
+        
+        # Add the pickle file to git ignore
+        
+        with open(fr'lambda-ev-forecast\app\.gitignore', 'a') as f:
+            f.write(f'{ver}api.pickle\n')
+            
+        # load method_loader.py file
             
         with open(fr'lambda-ev-forecast\app\method_loader.py') as fp: # cd to the directory where the method_loader.py file is located
             
