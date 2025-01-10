@@ -16,7 +16,7 @@ def load_inperf(ver):
         methods['loader'] = compile(fp.read(),"method_loader",'exec') 
     return [api,methods]
 
-api,methods = load_inperf('v202411')
+api,methods = load_inperf('v202501')
 
 print(api) # print api dict
 
@@ -36,7 +36,7 @@ exec(methods['loader']) # methods['loader'] is a code object
 http_method = "post"
 route = "/forecast"
 method = route.split('/')[-1]
-query = {'modelVersion':'v202411'}
+query = {'modelVersion':'v202501'}
 payload = {
     'scenario':'s8', # can only do one scenario at a time.'bl', 's0', 's1', 's2', 's3', 's4', 's5', 's6', 's7', 's8', etc. found in inperf. 'mcr_u2', 'mcr_nd', 'mcr_rf', 'mcr_ep', 'mcr_cp', 'mcr_lp, not yet included
     'vehicles':
@@ -69,7 +69,7 @@ output = methods[http_method][method](api,query,payload)
 
 # for further analysis
 df = pd.DataFrame(output)
-df.to_csv(fr'O:\autocycle\AC_EV\API\S8forecast_11.csv',index=False)
+df.to_csv(fr'O:\autocycle\AC_EV\API\s8forecast_01_25.csv',index=False)
 
 print(output) # works like a charm
 print("finished")
